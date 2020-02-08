@@ -6,7 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_grocery.view.*
 
-class GroceryAdapter(val list: List<Grocery>) : RecyclerView.Adapter<GroceryAdapter.ViewHolder>() {
+class GroceryAdapter(val list: List<Grocery>) :
+    RecyclerView.Adapter<GroceryAdapter.ViewHolder>() {
+
+    var listener: ((Grocery) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,6 +30,12 @@ class GroceryAdapter(val list: List<Grocery>) : RecyclerView.Adapter<GroceryAdap
         holder.txtName.text = cur.name
         holder.txtWeight.text = String.format("%dg", cur.weight)
 
+        holder.card.setOnClickListener {
+            listener?.invoke(cur)
+
+        }
+
+
     }
 
 
@@ -35,5 +44,6 @@ class GroceryAdapter(val list: List<Grocery>) : RecyclerView.Adapter<GroceryAdap
         val txtPrice = itemView.txtPrice
         val txtName = itemView.txtName
         val txtWeight = itemView.txtWeight
+        val card = itemView.card
     }
 }
