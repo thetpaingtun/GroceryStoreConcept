@@ -31,6 +31,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:translationY="-100dp"
         app:layout_constraintBottom_toTopOf="@id/guide"
         app:layout_constraintHeight_default="spread"
         app:layout_constraintLeft_toLeftOf="parent"
