@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:onTouchUp="autoComplete"
+            app:touchAnchorId="@id/cardCart"
+            app:touchAnchorSide="top"
+            app:touchRegionId="@id/cardCart" />
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/guide"
+            app:layout_constraintGuide_begin="100dp" />
+
+
+        <Constraint
+            android:id="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+            <Transform android:translationY="-700dp" />
+
+
+        </Constraint>
+
+
+        <Constraint
+            android:id="@id/recyclerView"
+            app:layout_constraintBottom_toTopOf="@id/guide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            <Transform android:translationY="-600dp" />
+        </Constraint>
+
+    </ConstraintSet>
+
+
+</MotionScene>
