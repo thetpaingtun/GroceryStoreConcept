@@ -19,7 +19,7 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@id/guide"
-            app:layout_constraintGuide_begin="100dp" />
+            app:layout_constraintGuide_begin="156dp" />
 
 
         <Constraint
@@ -31,15 +31,6 @@
 
         </Constraint>
 
-
-        <Constraint
-            android:id="@id/recyclerView"
-            app:layout_constraintBottom_toTopOf="@id/guide"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
-            <Transform android:translationY="-600dp" />
-        </Constraint>
 
     </ConstraintSet>
 
