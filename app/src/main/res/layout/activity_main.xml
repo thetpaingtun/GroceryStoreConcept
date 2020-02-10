@@ -2,10 +2,13 @@
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#99E7E0E0"
     app:layoutDescription="@xml/grocery_scene"
+    app:motionDebug="SHOW_ALL"
+    app:showPaths="true"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -82,4 +85,34 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/motionLayoutDetail"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#000"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/animated_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/banana"
+            app:layout_constraintDimensionRatio="3:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupBase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="motionRoot,toolbar,recyclerView,cardCart" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

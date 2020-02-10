@@ -1,15 +1,16 @@
 package com.gmail.tpt.grocerystore
 
-import android.graphics.drawable.shapes.RoundRectShape
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.shape.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupGroceryAdapter() {
         val groceryAdapter = GroceryAdapter(getGroceryList())
         val lm = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//        val lm = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         recyclerView.apply {
             adapter = groceryAdapter
@@ -58,9 +60,63 @@ class MainActivity : AppCompatActivity() {
             addItemDecoration(SpacesItemDecoration(context))
         }
 
-        groceryAdapter.listener = {
+        groceryAdapter.listener = { view, grocery ->
             Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
+            Logger.d("pos => " + view.getLocationOnScreen())
+            initAnimate(view, grocery)
+            motionRoot.transitionToEnd()
         }
+    }
+
+    private fun initAnimate(view: View, grocery: Grocery) {
+//        animatedView.isClickable = visibility == View.VISIBLE
+//        animatedView.isFocusable = visibility == View.VISIBLE
+
+        motionLayoutDetail.animated_logo.setImageDrawable(
+            ContextCompat.getDrawable(
+                this, grocery.image
+            )
+        )
+
+        val set = motionRoot.getConstraintSet(R.id.start)
+        set.clear(R.id.motionLayoutDetail)
+        set.constrainWidth(R.id.motionLayoutDetail, view.width)
+        set.constrainHeight(R.id.motionLayoutDetail, view.height)
+/*        if (view.right - view.width < 0) {
+            set.connect(
+                R.id.motionLayoutDetail,
+                ConstraintSet.END,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.START,
+                view.right
+            )
+        } else {
+            set.connect(
+                R.id.motionLayoutDetail,
+                ConstraintSet.START,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.START,
+                view.getLocationOnScreen().x
+            )
+        }*/
+        set.setVisibility(R.id.motionLayoutDetail, View.VISIBLE)
+//        animatedView.isClickable = false
+//        animatedView.isFocusable = false
+/*        set.connect(
+            R.id.motionLayoutDetail,
+            ConstraintSet.TOP,
+            R.id.recyclerView,
+            ConstraintSet.TOP,
+            0
+        )
+        set.connect(
+            R.id.motionLayoutDetail,
+            ConstraintSet.START,
+            R.id.recyclerView,
+            ConstraintSet.START,
+            view.getLocationOnScreen().x
+        )*/
+//        set.applyTo(motionRoot)
     }
 
 
