@@ -64,6 +64,8 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
             Logger.d("pos => " + view.getLocationOnScreen())
             initAnimate(view, grocery)
+            motionRoot.setTransition(R.id.start, R.id.detailEnd)
+            motionRoot.setTransitionDuration(300)
             motionRoot.transitionToEnd()
         }
     }
@@ -71,6 +73,7 @@ class MainActivity : AppCompatActivity() {
     private fun initAnimate(view: View, grocery: Grocery) {
 //        animatedView.isClickable = visibility == View.VISIBLE
 //        animatedView.isFocusable = visibility == View.VISIBLE
+
 
         motionLayoutDetail.animated_logo.setImageDrawable(
             ContextCompat.getDrawable(
@@ -82,6 +85,8 @@ class MainActivity : AppCompatActivity() {
         set.clear(R.id.motionLayoutDetail)
         set.constrainWidth(R.id.motionLayoutDetail, view.width)
         set.constrainHeight(R.id.motionLayoutDetail, view.height)
+//        set.constrainWidth(R.id.motionLayoutDetail, view.width)
+//        set.constrainHeight(R.id.motionLayoutDetail, view.height)
 /*        if (view.right - view.width < 0) {
             set.connect(
                 R.id.motionLayoutDetail,
@@ -116,7 +121,22 @@ class MainActivity : AppCompatActivity() {
             ConstraintSet.START,
             view.getLocationOnScreen().x
         )*/
-//        set.applyTo(motionRoot)
+        set.connect(
+            R.id.motionLayoutDetail,
+            ConstraintSet.START,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.START,
+            view.getLocationOnScreen().x
+        )
+
+        set.connect(
+            R.id.motionLayoutDetail,
+            ConstraintSet.TOP,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.TOP,
+            view.getLocationOnScreen().y
+        )
+        set.applyTo(motionRoot)
     }
 
 
