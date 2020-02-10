@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     android:background="#99E7E0E0"
     app:layoutDescription="@xml/grocery_scene"
-    app:motionDebug="SHOW_ALL"
-    app:showPaths="true"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
