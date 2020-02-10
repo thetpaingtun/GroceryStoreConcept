@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.activity_test.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,11 +31,17 @@ class MainActivity : AppCompatActivity() {
 
         setupCartAdapter()
 
-/*        cardCart.shapeAppearanceModel = ShapeAppearanceModel.Builder()
-            .setAllCornerSizes(32f)
-            .build()*/
 
+        setupViews()
 
+    }
+
+    private fun setupViews() {
+        imgDetailBack.setOnClickListener {
+            motionRoot.setTransition(R.id.detailEnd, R.id.start)
+            motionRoot.setTransitionDuration(300)
+            motionRoot.transitionToEnd()
+        }
     }
 
     private fun setupCartAdapter() {
@@ -71,11 +79,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initAnimate(view: View, grocery: Grocery) {
-//        animatedView.isClickable = visibility == View.VISIBLE
-//        animatedView.isFocusable = visibility == View.VISIBLE
 
 
-        motionLayoutDetail.animated_logo.setImageDrawable(
+        motionLayoutDetail.imgDetail.setImageDrawable(
             ContextCompat.getDrawable(
                 this, grocery.image
             )
@@ -85,42 +91,8 @@ class MainActivity : AppCompatActivity() {
         set.clear(R.id.motionLayoutDetail)
         set.constrainWidth(R.id.motionLayoutDetail, view.width)
         set.constrainHeight(R.id.motionLayoutDetail, view.height)
-//        set.constrainWidth(R.id.motionLayoutDetail, view.width)
-//        set.constrainHeight(R.id.motionLayoutDetail, view.height)
-/*        if (view.right - view.width < 0) {
-            set.connect(
-                R.id.motionLayoutDetail,
-                ConstraintSet.END,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.START,
-                view.right
-            )
-        } else {
-            set.connect(
-                R.id.motionLayoutDetail,
-                ConstraintSet.START,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.START,
-                view.getLocationOnScreen().x
-            )
-        }*/
+
         set.setVisibility(R.id.motionLayoutDetail, View.VISIBLE)
-//        animatedView.isClickable = false
-//        animatedView.isFocusable = false
-/*        set.connect(
-            R.id.motionLayoutDetail,
-            ConstraintSet.TOP,
-            R.id.recyclerView,
-            ConstraintSet.TOP,
-            0
-        )
-        set.connect(
-            R.id.motionLayoutDetail,
-            ConstraintSet.START,
-            R.id.recyclerView,
-            ConstraintSet.START,
-            view.getLocationOnScreen().x
-        )*/
         set.connect(
             R.id.motionLayoutDetail,
             ConstraintSet.START,
