@@ -83,8 +83,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.gmail.tpt.grocerystore.CartFrameLayout>
 
-    <include layout="@layout/activity_test" />
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupBase"
         android:layout_width="wrap_content"

@@ -1,24 +1,22 @@
 package com.gmail.tpt.grocerystore
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.GridLayoutManager
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.item_grocery.view.*
+import kotlinx.android.synthetic.main.item_fruit.view.*
 
-class GroceryAdapter(val list: List<Grocery>) :
-    RecyclerView.Adapter<GroceryAdapter.ViewHolder>() {
+class FruitAdapter(val context: Context, val list: List<Fruit>) :
+    RecyclerView.Adapter<FruitAdapter.ViewHolder>() {
 
-    var listener: ((View, Grocery) -> Unit)? = null
+    var listener: ((ImageView, Fruit) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_grocery, parent, false)
+        val view = inflater.inflate(R.layout.item_fruit, parent, false)
         return ViewHolder(view)
     }
 
@@ -35,11 +33,11 @@ class GroceryAdapter(val list: List<Grocery>) :
         holder.txtWeight.text = String.format("%dg", cur.weight)
 
         holder.card.setOnClickListener {
-            listener?.invoke(holder.itemView, cur)
+            listener?.invoke(holder.itemView.img, cur)
 
         }
 
-
+//        holder.img.transitionName = context.getString(R.string.transition_fruit) + position
     }
 
 

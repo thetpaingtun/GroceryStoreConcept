@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GroceryStore</string>
+    <string name="transition_fruit">transition_fruit</string>
 </resources>

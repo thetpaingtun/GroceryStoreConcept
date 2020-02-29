@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:motion="http://schemas.android.com/tools">
-    <!--
-        <Transition
-            app:constraintSetEnd="@id/detailEnd"
-            app:constraintSetStart="@id/detailStart"
-            app:duration="500"></Transition>-->
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <ConstraintSet android:id="@+id/start" />
-    <ConstraintSet android:id="@+id/detailEnd">
-        <Constraint
-            android:id="@id/motionLayoutDetail"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
-            <Motion
-                app:pathMotionArc="startHorizontal"
-                app:transitionEasing="decelerate" />
-        </Constraint>
-
-    </ConstraintSet>
 
     <Transition
         app:constraintSetEnd="@id/end"
