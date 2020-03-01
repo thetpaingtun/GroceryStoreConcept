@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 
 
-class SpacesItemDecoration(val context: Context) : ItemDecoration() {
+class SpacesItemDecoration(val context: Context, val initSpace: Int? = null) : ItemDecoration() {
 
     private val space: Int
 
@@ -36,7 +36,9 @@ class SpacesItemDecoration(val context: Context) : ItemDecoration() {
     }
 
     init {
-        space = context.getResources().getDimensionPixelSize(R.dimen.recycler_spacing) / 2;
+
+        space =
+            initSpace ?: context.getResources().getDimensionPixelSize(R.dimen.recycler_spacing) / 2;
 
     }
 

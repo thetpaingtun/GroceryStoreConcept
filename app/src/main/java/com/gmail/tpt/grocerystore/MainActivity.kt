@@ -3,6 +3,8 @@ package com.gmail.tpt.grocerystore
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.transition.*
 import android.view.Menu
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         setupCartAdapter()
 
+
+        val fade = Fade()
+        fade.duration = 100
+
+        window.exitTransition = TransitionInflater.from(this)
+            .inflateTransition(R.transition.trans_main_content_exit)
     }
 
 
@@ -42,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             adapter = cartAdapter
             layoutManager = lm
 
-            addItemDecoration(SpacesItemDecoration(context))
+            addItemDecoration(SpacesItemDecoration(context, 32))
         }
     }
 

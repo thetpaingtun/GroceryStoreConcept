@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
+import androidx.core.view.children
 
 /**
  *
@@ -41,10 +42,16 @@ class CartFrameLayout @JvmOverloads constructor(
 //        super.setBackground(background)
     }
 
+/*    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+
+        for (child in children) {
+            child.layout(left, top, right, bottom)
+        }
+    }*/
+
 
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
-
         val rectView = Path()
         rectView.addRect(
             0f,
@@ -56,10 +63,24 @@ class CartFrameLayout @JvmOverloads constructor(
 
 
         val path = Path()
-        path.moveTo(120f, 70f)
-        path.cubicTo(5f, 75f, 5f, 15f, 0f, 0f)
+        path.moveTo(context.dp(40f), context.dp(23.334f))
+        path.cubicTo(
+            context.dp(1.6666f),
+            context.dp(25f),
+            context.dp(1.6666f),
+            context.dp(5f),
+            0f,
+            0f
+        )
         path.lineTo(width.toFloat(), 0f)
-        path.cubicTo(width - 5f, 15f, width - 5f, 75f, width - 120f, 70f)
+        path.cubicTo(
+            width - context.dp(1.6666f),
+            context.dp(5f),
+            width - context.dp(5f),
+            context.dp(25f),
+            width - context.dp(40f),
+            context.dp(23.334f)
+        )
 
 
         path.close()
@@ -68,19 +89,12 @@ class CartFrameLayout @JvmOverloads constructor(
         canvas.drawPath(path, clipPaint)
     }
 
-    override fun getOutlineProvider(): ViewOutlineProvider {
-        return object : ViewOutlineProvider() {
-            override fun getOutline(view: View, outline: Outline) {
 
-                val path = Path()
-                path.moveTo(100f, 50f)
-                path.lineTo(0f, 0f)
-                path.lineTo(width.toFloat(), 0f)
-                path.lineTo(width - 100f, 50f)
-                path.close()
+    fun Context.dp(dp: Float): Float {
+        return resources.displayMetrics.density * dp
+    }
 
-                outline.setConvexPath(path)
-            }
-        }
+    fun Context.px(px: Float): Float {
+        return px / resources.displayMetrics.density
     }
 }
