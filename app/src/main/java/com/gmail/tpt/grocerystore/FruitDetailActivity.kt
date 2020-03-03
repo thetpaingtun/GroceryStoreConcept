@@ -49,5 +49,9 @@ class FruitDetailActivity : AppCompatActivity() {
             })
             finishAfterTransition()
         }
+
+        /*   window.sharedElementReturnTransition = ChangeBounds().apply {
+               duration = 4000
+           }*/
     }
 }

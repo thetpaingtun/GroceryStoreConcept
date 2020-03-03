@@ -112,15 +112,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityReenter(resultCode: Int, data: Intent?) {
-//        postponeEnterTransition()
+        postponeEnterTransition()
 
         mAddedToCart = data?.getBooleanExtra(FruitDetailActivity.EXTRA_ADD_TO_CART, false) ?: false
         mAddedFruit = data?.getParcelableExtra<Fruit>(FruitDetailActivity.EXTRA_FRUIT)
 
 
-        civFruit2.setImageResource(mAddedFruit?.image ?: 0)
+        civFruit2.load(mAddedFruit?.image ?: 0, {
+            startPostponedEnterTransition()
+        })
 
-
-//        Handler().postDelayed({ startPostponedEnterTransition() }, 500)
     }
 }
