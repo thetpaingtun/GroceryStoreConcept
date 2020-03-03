@@ -4,22 +4,19 @@ import android.app.ActivityOptions
 import android.app.SharedElementCallback
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.transition.*
+import android.transition.TransitionInflater
 import android.view.Menu
 import android.view.View
-import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_tes.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var mAddedFruit: Fruit? = null
     private var mAddedToCart: Boolean = false
     private val RC_DETAIL = 123
 
@@ -44,9 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         window.exitTransition = TransitionInflater.from(this)
             .inflateTransition(R.transition.trans_main_content_exit)
-/*
-        window.sharedElementExitTransition = TransitionInflater.from(this)
-            .inflateTransition(R.transition.trans_shared_element)*/
+
 
 
         setExitSharedElementCallback(object : SharedElementCallback() {
@@ -120,6 +115,11 @@ class MainActivity : AppCompatActivity() {
 //        postponeEnterTransition()
 
         mAddedToCart = data?.getBooleanExtra(FruitDetailActivity.EXTRA_ADD_TO_CART, false) ?: false
+        mAddedFruit = data?.getParcelableExtra<Fruit>(FruitDetailActivity.EXTRA_FRUIT)
+
+
+        civFruit2.setImageResource(mAddedFruit?.image ?: 0)
+
 
 //        Handler().postDelayed({ startPostponedEnterTransition() }, 500)
     }

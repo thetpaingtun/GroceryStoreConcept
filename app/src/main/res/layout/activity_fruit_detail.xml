@@ -10,10 +10,11 @@
 
     <ImageView
         android:id="@+id/imgBack"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_margin="24dp"
         android:background="?selectableItemBackgroundBorderless"
+        android:padding="4dp"
         android:src="@drawable/ic_back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +24,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="4dp"
-        android:background="#fff"
         android:padding="24dp"
         android:src="@drawable/banana"
         android:transitionName="transition_fruit"

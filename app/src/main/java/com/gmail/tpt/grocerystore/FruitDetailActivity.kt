@@ -25,10 +25,6 @@ class FruitDetailActivity : AppCompatActivity() {
         postponeEnterTransition()
 
 
-        window.sharedElementReturnTransition = ChangeBounds().apply {
-            duration = 300
-        }
-
         val fruit = intent.getParcelableExtra<Fruit>(EXTRA_FRUIT)
 
         if (fruit != null) {
@@ -47,7 +43,10 @@ class FruitDetailActivity : AppCompatActivity() {
         }
 
         btnAddToCart.setOnClickListener {
-            setResult(Activity.RESULT_OK, Intent().apply { putExtra(EXTRA_ADD_TO_CART, true) })
+            setResult(Activity.RESULT_OK, Intent().apply {
+                putExtra(EXTRA_ADD_TO_CART, true)
+                putExtra(EXTRA_FRUIT, fruit)
+            })
             finishAfterTransition()
         }
     }
