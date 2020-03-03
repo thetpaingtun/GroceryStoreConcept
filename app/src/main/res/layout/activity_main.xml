@@ -65,6 +65,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/civFruit"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginLeft="36dp"
