@@ -32,15 +32,15 @@ class FruitDetailActivity : AppCompatActivity() {
         val fruit = intent.getParcelableExtra<Fruit>(EXTRA_FRUIT)
 
         if (fruit != null) {
-
-            img.setImageResource(fruit.image)
             txtName.text = fruit.name
             txtWeight.text = "${fruit.weight}g"
             txtPrice.text = "$${fruit.price}"
             txtAboutMsg.text = fruit.description
 
+            img.load(fruit.image) {
+                startPostponedEnterTransition()
+            }
         }
-        startPostponedEnterTransition()
 
         imgBack.setOnClickListener {
             finishAfterTransition()

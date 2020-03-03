@@ -36,8 +36,6 @@ class FruitAdapter(val context: Context, val list: List<Fruit>) :
             listener?.invoke(holder.itemView.img, cur)
 
         }
-
-//        holder.img.transitionName = context.getString(R.string.transition_fruit) + position
     }
 
 

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tes.*
 
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (mAddedToCart) {
                     sharedElements.clear()
-                    sharedElements.put(getString(R.string.transition_fruit), civFruit)
+                    sharedElements.put(getString(R.string.transition_fruit), civFruit2)
                     mAddedToCart = false
                 }
 
