@@ -5,8 +5,10 @@ import android.app.SharedElementCallback
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.transition.TransitionInflater
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.view.ViewTreeObserver
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_fruit.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,8 +50,6 @@ class MainActivity : AppCompatActivity() {
         window.exitTransition = TransitionInflater.from(this)
             .inflateTransition(R.transition.trans_main_content_exit)
 
-
-
         setExitSharedElementCallback(object : SharedElementCallback() {
             override fun onMapSharedElements(
                 names: MutableList<String>?,
@@ -75,17 +76,6 @@ class MainActivity : AppCompatActivity() {
             Logger.d("holdable => ${cardHeaderLayout.getHoldableImageCount()}")
         }
     }
-
-/*    private fun prePopulateFruiteItem() {
-        val civFruit = CircularImageView(this)
-            .apply {
-                transitionName =
-                    getString(R.string.transition_fruit)
-            }
-
-        cardHeaderLayout.addViewWithMarginLeft(civFruit)
-    }*/
-
 
     private fun setupCartAdapter() {
         val cartAdapter = CartAdapter(getCartList())
@@ -115,9 +105,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gotoFruitDetail(imgView: ImageView, fruit: Fruit) {
-//        prePopulateFruiteItem()
-
-
         val options = ActivityOptions.makeSceneTransitionAnimation(
             this,
             imgView,
@@ -143,7 +130,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityReenter(resultCode: Int, data: Intent?) {
-
         mAddedToCart = data?.getBooleanExtra(FruitDetailActivity.EXTRA_ADD_TO_CART, false) ?: false
         mAddedFruit = data?.getParcelableExtra(FruitDetailActivity.EXTRA_FRUIT)
 
@@ -158,9 +144,8 @@ class MainActivity : AppCompatActivity() {
             mTopCartFull = true
             startPostponedEnterTransition()
         } else {
-            val civFruit = CircularImageView(this)
+            val civFruit = ImageView(this)
                 .apply {
-                    borderWidth = 1f
                     transitionName =
                         getString(R.string.transition_fruit)
                 }
@@ -168,9 +153,12 @@ class MainActivity : AppCompatActivity() {
             cardHeaderLayout.addViewWithMarginLeft(civFruit)
 
 
-            val civ = cardHeaderLayout.lastChild() as CircularImageView
+            val civ = cardHeaderLayout.lastChild() as ImageView
             civ.load(mAddedFruit?.image ?: 0) {
-                startPostponedEnterTransition()
+                cardHeaderLayout.doOnLayout {
+                    Logger.d("height => ${civ.height}")
+                    startPostponedEnterTransition()
+                }
             }
         }
     }

@@ -76,23 +76,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <!--        <com.mikhaellopez.circularimageview.CircularImageView
-                            android:id="@+id/civFruit"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/avocado"
-                            app:civ_border_width="1dp" />
-
-                        <com.mikhaellopez.circularimageview.CircularImageView
-                            android:id="@+id/civFruit2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="16dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/strawberry"
-                            app:civ_border_width="1dp" />-->
-
             </com.gmail.tpt.grocerystore.CartHeaderLayout>
 
             <com.mikhaellopez.circularimageview.CircularImageView
@@ -100,7 +83,6 @@
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="24dp"
-                android:scaleType="centerCrop"
                 android:src="@drawable/abc_vector_test"
                 app:civ_border_width="1dp"
                 app:layout_constraintBottom_toTopOf="@id/bottomGuide"
@@ -112,7 +94,6 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginRight="24dp"
-                android:scaleType="centerCrop"
                 android:visibility="invisible"
                 app:civ_border_width="1dp"
                 app:layout_constraintBottom_toTopOf="@id/bottomGuide"

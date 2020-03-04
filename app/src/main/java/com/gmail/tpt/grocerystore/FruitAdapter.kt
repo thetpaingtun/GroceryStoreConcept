@@ -27,15 +27,17 @@ class FruitAdapter(val context: Context, val list: List<Fruit>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cur = list[position]
 
-        holder.img.setImageResource(cur.image)
+//        holder.img.setImageResource(cur.image)
+        holder.img.load(cur.image)
+
         holder.txtPrice.text = String.format("$%.2f", cur.price)
         holder.txtName.text = cur.name
         holder.txtWeight.text = String.format("%dg", cur.weight)
 
         holder.card.setOnClickListener {
             listener?.invoke(holder.itemView.img, cur)
-
         }
+
     }
 
 

@@ -5,15 +5,13 @@ import android.app.SharedElementCallback
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.ChangeImageTransform
-import android.transition.Explode
-import android.transition.Fade
-import android.transition.Slide
+import android.transition.*
 import android.view.Gravity
 import android.view.View
 import android.view.Window
 import com.gmail.tpt.grocerystore.Logger
 import com.gmail.tpt.grocerystore.R
+import com.gmail.tpt.grocerystore.load
 import kotlinx.android.synthetic.main.activity_tes.*
 import kotlinx.android.synthetic.main.activity_test_detail.*
 
@@ -23,7 +21,13 @@ class TestDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_detail)
 
+        postponeEnterTransition()
 
+
+
+        imgDetail.load(R.drawable.strawberry) {
+            startPostponedEnterTransition()
+        }
 
         imgDetail.setOnClickListener {
             finishAfterTransition()

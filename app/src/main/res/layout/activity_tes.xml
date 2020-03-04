@@ -30,8 +30,8 @@
 
     <ImageView
         android:id="@+id/imgCart"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="164dp"
         android:layout_marginTop="612dp"
         android:src="@drawable/strawberry"

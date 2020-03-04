@@ -2,14 +2,10 @@ package com.gmail.tpt.grocerystore
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.ChangeBounds
-import android.transition.Fade
 import android.transition.TransitionInflater
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_fruit_detail.*
-import kotlinx.android.synthetic.main.activity_test_detail.*
-import kotlinx.android.synthetic.main.item_cart.view.*
 
 class FruitDetailActivity : AppCompatActivity() {
 
@@ -53,5 +49,9 @@ class FruitDetailActivity : AppCompatActivity() {
         /*   window.sharedElementReturnTransition = ChangeBounds().apply {
                duration = 4000
            }*/
+
+
+        window.sharedElementEnterTransition =
+            TransitionInflater.from(this).inflateTransition(R.transition.trans_shared_element)
     }
 }
