@@ -89,12 +89,4 @@ class CartFrameLayout @JvmOverloads constructor(
         canvas.drawPath(path, clipPaint)
     }
 
-
-    fun Context.dp(dp: Float): Float {
-        return resources.displayMetrics.density * dp
-    }
-
-    fun Context.px(px: Float): Float {
-        return px / resources.displayMetrics.density
-    }
 }

@@ -2,20 +2,28 @@ package com.gmail.tpt.grocerystore
 
 import android.app.ActivityOptions
 import android.app.SharedElementCallback
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionInflater
+import android.util.AttributeSet
 import android.view.Menu
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.doOnLayout
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var mTopCartFull: Boolean = false
+    private var mTopHoldableItemCount: Int = 0
     private var mAddedFruit: Fruit? = null
     private var mAddedToCart: Boolean = false
     private val RC_DETAIL = 123
@@ -36,9 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         setupCartAdapter()
 
-
-//        window.reenterTransition = Fade().apply { startDelay = 400 }
-
         window.exitTransition = TransitionInflater.from(this)
             .inflateTransition(R.transition.trans_main_content_exit)
 
@@ -50,14 +55,36 @@ class MainActivity : AppCompatActivity() {
                 sharedElements: MutableMap<String, View>
             ) {
                 if (mAddedToCart) {
-                    sharedElements.clear()
-                    sharedElements.put(getString(R.string.transition_fruit), civFruit2)
-                    mAddedToCart = false
-                }
+                    var civ = cardHeaderLayout.lastChild()
+                    if (mTopCartFull) {
+                        civ = civHidden
+                    }
 
+                    civ?.apply {
+                        sharedElements.clear()
+                        sharedElements.put(getString(R.string.transition_fruit), this)
+                        mAddedToCart = false
+                    }
+                }
             }
         })
+
+
+        cardHeaderLayout.doOnLayout {
+            mTopHoldableItemCount = cardHeaderLayout.getHoldableImageCount()
+            Logger.d("holdable => ${cardHeaderLayout.getHoldableImageCount()}")
+        }
     }
+
+/*    private fun prePopulateFruiteItem() {
+        val civFruit = CircularImageView(this)
+            .apply {
+                transitionName =
+                    getString(R.string.transition_fruit)
+            }
+
+        cardHeaderLayout.addViewWithMarginLeft(civFruit)
+    }*/
 
 
     private fun setupCartAdapter() {
@@ -88,6 +115,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gotoFruitDetail(imgView: ImageView, fruit: Fruit) {
+//        prePopulateFruiteItem()
+
+
         val options = ActivityOptions.makeSceneTransitionAnimation(
             this,
             imgView,
@@ -97,6 +127,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, FruitDetailActivity::class.java).apply {
             putExtra(FruitDetailActivity.EXTRA_FRUIT, fruit)
         }
+
 
         startActivityForResult(
             intent,
@@ -112,15 +143,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityReenter(resultCode: Int, data: Intent?) {
-        postponeEnterTransition()
 
         mAddedToCart = data?.getBooleanExtra(FruitDetailActivity.EXTRA_ADD_TO_CART, false) ?: false
-        mAddedFruit = data?.getParcelableExtra<Fruit>(FruitDetailActivity.EXTRA_FRUIT)
+        mAddedFruit = data?.getParcelableExtra(FruitDetailActivity.EXTRA_FRUIT)
 
+        if (mAddedToCart) {
+            startAddingToCartTransition()
+        }
+    }
 
-        civFruit2.load(mAddedFruit?.image ?: 0, {
+    private fun startAddingToCartTransition() {
+        postponeEnterTransition()
+        if (cardHeaderLayout.childCount == mTopHoldableItemCount) {
+            mTopCartFull = true
             startPostponedEnterTransition()
-        })
+        } else {
+            val civFruit = CircularImageView(this)
+                .apply {
+                    borderWidth = 1f
+                    transitionName =
+                        getString(R.string.transition_fruit)
+                }
 
+            cardHeaderLayout.addViewWithMarginLeft(civFruit)
+
+
+            val civ = cardHeaderLayout.lastChild() as CircularImageView
+            civ.load(mAddedFruit?.image ?: 0) {
+                startPostponedEnterTransition()
+            }
+        }
     }
 }
