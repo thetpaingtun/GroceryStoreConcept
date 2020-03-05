@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         window.exitTransition = TransitionInflater.from(this)
             .inflateTransition(R.transition.trans_main_content_exit)
 
+
+
         setExitSharedElementCallback(object : SharedElementCallback() {
             override fun onMapSharedElements(
                 names: MutableList<String>?,
@@ -67,6 +69,20 @@ class MainActivity : AppCompatActivity() {
                         mAddedToCart = false
                     }
                 }
+            }
+
+            override fun onSharedElementStart(
+                sharedElementNames: MutableList<String>?,
+                sharedElements: MutableList<View>?,
+                sharedElementSnapshots: MutableList<View>
+            ) {
+                super.onSharedElementStart(
+                    sharedElementNames,
+                    sharedElements,
+                    sharedElementSnapshots
+                )
+                Logger.d("start => " + sharedElementSnapshots[0].width)
+
             }
         })
 
@@ -100,6 +116,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fruitAdapter.listener = { imgView, grocery ->
+            Logger.d("adapter start => " + imgView.width)
             gotoFruitDetail(imgView, grocery)
         }
     }
@@ -155,7 +172,7 @@ class MainActivity : AppCompatActivity() {
 
             val civ = cardHeaderLayout.lastChild() as ImageView
             civ.load(mAddedFruit?.image ?: 0) {
-                cardHeaderLayout.doOnLayout {
+                civ.doOnLayout {
                     Logger.d("height => ${civ.height}")
                     startPostponedEnterTransition()
                 }
