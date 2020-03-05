@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_cart.view.*
 
-class CartAdapter(val list: List<Cart>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(val list: MutableList<Cart>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,6 +36,11 @@ class CartAdapter(val list: List<Cart>) : RecyclerView.Adapter<CartAdapter.ViewH
         val txtName = itemView.txtName
         val txtPrice = itemView.txtPrice
 
+    }
+
+    fun addItem(item: Cart) {
+        list.add(item)
+        notifyDataSetChanged()
     }
 
 }

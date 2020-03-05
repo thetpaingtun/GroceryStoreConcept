@@ -1,6 +1,11 @@
 package com.gmail.tpt.grocerystore
 
-data class Cart(val drawable: Int, val count: Int, val name: String, val totalPrice: Float)
+data class Cart(
+    val drawable: Int = R.drawable.oranges,
+    val count: Int = 0,
+    val name: String = "",
+    val totalPrice: Float = 0f
+)
 
 
 fun getCartList(): List<Cart> {

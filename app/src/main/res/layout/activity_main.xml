@@ -25,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
         android:paddingBottom="176dp"
         android:translationY="176dp"
         app:layout_constrainedHeight="true"

@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.item_fruit.view.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var cartAdapter: CartAdapter
     private var mTopCartFull: Boolean = false
     private var mTopHoldableItemCount: Int = 0
     private var mAddedFruit: Fruit? = null
@@ -82,7 +83,6 @@ class MainActivity : AppCompatActivity() {
                     sharedElementSnapshots
                 )
                 Logger.d("start => " + sharedElementSnapshots[0].width)
-
             }
         })
 
@@ -91,10 +91,11 @@ class MainActivity : AppCompatActivity() {
             mTopHoldableItemCount = cardHeaderLayout.getHoldableImageCount()
             Logger.d("holdable => ${cardHeaderLayout.getHoldableImageCount()}")
         }
+
     }
 
     private fun setupCartAdapter() {
-        val cartAdapter = CartAdapter(getCartList())
+        cartAdapter = CartAdapter(mutableListOf())
         val lm = LinearLayoutManager(this)
 
         recyCart.apply {
@@ -178,5 +179,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        addFruitTotheCart()
+    }
+
+    private fun addFruitTotheCart() {
+        val cart = mAddedFruit?.run {
+            Cart(image, 1, name, price)
+        } ?: Cart()
+
+        cartAdapter.addItem(cart)
     }
 }
