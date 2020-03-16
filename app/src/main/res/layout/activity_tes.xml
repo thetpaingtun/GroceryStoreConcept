@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/imgFruit"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginLeft="236dp"
         android:layout_marginTop="380dp"
         android:src="@drawable/strawberry"
         android:transitionName="img_trans"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

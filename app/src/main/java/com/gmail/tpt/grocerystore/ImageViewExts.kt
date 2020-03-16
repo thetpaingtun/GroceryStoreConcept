@@ -20,8 +20,9 @@ import com.bumptech.glide.request.target.Target
  */
 fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
     Glide.with(this)
-        .applyDefaultRequestOptions(RequestOptions().dontTransform().dontAnimate())
         .load(drawable)
+        .centerCrop()
+        .dontAnimate()
         .listener(object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
