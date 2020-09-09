@@ -23,6 +23,7 @@ fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
         .load(drawable)
         .centerCrop()
         .dontAnimate()
+        .dontTransform()
         .listener(object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
