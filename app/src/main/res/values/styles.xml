@@ -10,6 +10,9 @@
         <item name="android:statusBarColor">#ffffff</item>
 
         <item name="android:fontFamily">@font/noto_family</item>
+
+        <!-- todo find the soulution for sdk 21 -->
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
 
