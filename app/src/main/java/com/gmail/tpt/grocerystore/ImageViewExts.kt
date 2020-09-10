@@ -49,7 +49,7 @@ fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
             }
         })
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-        .override(Target.SIZE_ORIGINAL)
+        .override(400, 400)
         .into(this)
 
 

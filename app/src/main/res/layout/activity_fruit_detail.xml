@@ -24,7 +24,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="4dp"
-        android:padding="24dp"
         android:src="@drawable/banana"
         android:transitionName="transition_fruit"
         app:layout_constraintBottom_toTopOf="@id/guideDetailMid"
