@@ -29,7 +29,6 @@ class FruitActivity : AppCompatActivity() {
         }
 
         fruitAdapter.listener = { imgView, grocery ->
-            Logger.d("adapter start => " + imgView.width)
             gotoFruitDetail(imgView, grocery)
         }
     }

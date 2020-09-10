@@ -2,26 +2,18 @@ package com.gmail.tpt.grocerystore
 
 import android.app.ActivityOptions
 import android.app.SharedElementCallback
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.transition.TransitionInflater
-import android.util.AttributeSet
-import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.view.ViewTreeObserver
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.doOnLayout
-import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_fruit.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
 
         setupMainAdapter()
-        
+
 
         setupCartAdapter()
 
@@ -83,7 +75,6 @@ class MainActivity : AppCompatActivity() {
                     sharedElements,
                     sharedElementSnapshots
                 )
-                Logger.d("start => " + sharedElementSnapshots[0].width)
             }
         })
 
@@ -118,7 +109,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         fruitAdapter.listener = { imgView, grocery ->
-            Logger.d("adapter start => " + imgView.width)
             gotoFruitDetail(imgView, grocery)
         }
     }

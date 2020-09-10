@@ -23,13 +23,13 @@
         android:id="@+id/img"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="4dp"
+        android:layout_marginHorizontal="48dp"
         android:src="@drawable/banana"
         android:transitionName="transition_fruit"
         app:layout_constraintBottom_toTopOf="@id/guideDetailMid"
         app:layout_constraintDimensionRatio="3:2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgBack"
         app:layout_goneMarginTop="24dp" />
 

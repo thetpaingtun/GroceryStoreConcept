@@ -49,12 +49,6 @@ class FruitAdapter(val context: Context, val list: List<Fruit>) :
         constraint.clone(holder.root)
         constraint.setDimensionRatio(holder.img.id, ratio)
         constraint.applyTo(holder.root)
-
-
-        Logger.d("image size => ${width}x${height}")
-        Logger.d("text size => ${holder.txtPrice.width}x${holder.txtPrice.height}")
-
-        context.resources
     }
 
 

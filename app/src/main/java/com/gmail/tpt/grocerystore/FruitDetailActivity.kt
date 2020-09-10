@@ -5,10 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import kotlinx.android.synthetic.main.activity_fruit_detail.*
 
 class FruitDetailActivity : AppCompatActivity() {
-
     companion object {
         const val EXTRA_ADD_TO_CART = "EXTRA_ADD_TO_CART"
         const val EXTRA_FRUIT = "EXTRA_FRUIT"
@@ -28,6 +28,12 @@ class FruitDetailActivity : AppCompatActivity() {
             txtWeight.text = "${fruit.weight}g"
             txtPrice.text = "$${fruit.price}"
             txtAboutMsg.text = fruit.description
+
+
+            img.post {
+                Logger.d("detail => ${img.width}x${img.height}")
+            }
+
 
             img.load(fruit.image) {
                 startPostponedEnterTransition()

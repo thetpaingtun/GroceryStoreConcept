@@ -23,6 +23,8 @@ import com.bumptech.glide.request.target.Target
  *
  */
 fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
+
+
     Glide.with(this)
         .load(drawable)
         .centerCrop()
@@ -54,8 +56,7 @@ fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
             }
         })
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        .fitCenter()
         .into(this)
-
-
 }
 
