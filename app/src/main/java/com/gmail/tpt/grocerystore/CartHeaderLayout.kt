@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import kotlin.math.floor
 
 /**
  *
@@ -14,17 +15,17 @@ class CartHeaderLayout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
+    val margin = 16f
+    val itemWidth = 48f
 
     init {
         orientation = HORIZONTAL
     }
 
     fun getHoldableImageCount(): Int {
-        val margin = 16f
-        val itemWidth = 48f
         val total = margin + itemWidth
         val holdableItem = (width / context.dp(total))
-        return holdableItem.toInt()
+        return floor(holdableItem).toInt()
     }
 
     fun lastChild(): View? {
@@ -33,7 +34,7 @@ class CartHeaderLayout @JvmOverloads constructor(
     }
 
     fun addViewWithMarginLeft(view: View) {
-        val lp = LinearLayout.LayoutParams(layoutParams)
+        val lp = LayoutParams(layoutParams)
         //if there is an item on the left
         if (childCount > 0) {
             lp.marginStart = context.dp(16f).toInt()

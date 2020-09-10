@@ -52,14 +52,14 @@ class CartFrameLayout @JvmOverloads constructor(
 
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
-        val rectView = Path()
+/*        val rectView = Path()
         rectView.addRect(
             0f,
             0f,
             1f * width,
             1f * height,
             Path.Direction.CW
-        )
+        )*/
 
 
         val path = Path()
