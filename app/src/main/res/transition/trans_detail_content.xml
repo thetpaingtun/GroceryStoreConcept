@@ -3,5 +3,6 @@
     android:slideEdge="bottom"
     android:startDelay="100">
 
+    <targets android:excludeId="@id/imgBack" />
 
 </slide>
