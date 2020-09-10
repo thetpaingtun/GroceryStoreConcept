@@ -50,13 +50,13 @@ fun getFruitList(): List<Fruit> {
         Fruit("Avocado", R.drawable.avocado, 13.45f, 500),
         Fruit("Banana", R.drawable.banana, 6.25f, 1000),
         Fruit("Mango", R.drawable.mango, 7.55f, 500),
-        Fruit("Pineapple", R.drawable.pineapple, 6.20f, 500),
+        Fruit("Apple", R.drawable.apple, 5.50f, 500),
         Fruit("Orange", R.drawable.oranges, 9.10f, 1000),
         Fruit("Strawberry", R.drawable.strawberry, 12.50f, 500),
         Fruit("Avocado", R.drawable.avocado, 13.45f, 500),
         Fruit("Banana", R.drawable.banana, 6.25f, 1000),
         Fruit("Mango", R.drawable.mango, 7.55f, 500),
-        Fruit("Pineapple", R.drawable.pineapple, 6.20f, 500)
+        Fruit("Apple", R.drawable.apple, 5.50f, 500)
 
     )
 }

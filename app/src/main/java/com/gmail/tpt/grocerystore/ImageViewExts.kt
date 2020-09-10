@@ -1,11 +1,15 @@
 package com.gmail.tpt.grocerystore
 
+import android.app.ActionBar
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.util.Log
+import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import com.bumptech.glide.Glide
+import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -45,11 +49,11 @@ fun ImageView.load(@RawRes drawable: Int, onLoadFinished: () -> Unit = {}) {
                 isFirstResource: Boolean
             ): Boolean {
                 onLoadFinished()
+                Logger.d("loading => ${resource?.intrinsicWidth}x${resource?.intrinsicHeight}")
                 return false
             }
         })
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-        .override(400, 400)
         .into(this)
 
 
