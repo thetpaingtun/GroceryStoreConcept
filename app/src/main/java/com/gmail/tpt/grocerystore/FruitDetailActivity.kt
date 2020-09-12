@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
 import kotlinx.android.synthetic.main.activity_fruit_detail.*
 
 class FruitDetailActivity : AppCompatActivity() {
@@ -20,6 +19,14 @@ class FruitDetailActivity : AppCompatActivity() {
 
         postponeEnterTransition()
 
+        window.enterTransition =
+            TransitionInflater.from(this).inflateTransition(R.transition.trans_detail_content_enter)
+
+        window.returnTransition = TransitionInflater.from(this)
+            .inflateTransition(R.transition.trans_detail_content_return)
+
+        window.sharedElementEnterTransition =
+            TransitionInflater.from(this).inflateTransition(R.transition.trans_shared_element)
 
         val fruit = intent.getParcelableExtra<Fruit>(EXTRA_FRUIT)
 
@@ -52,12 +59,5 @@ class FruitDetailActivity : AppCompatActivity() {
             finishAfterTransition()
         }
 
-        /*   window.sharedElementReturnTransition = ChangeBounds().apply {
-               duration = 4000
-           }*/
-
-
-        window.sharedElementEnterTransition =
-            TransitionInflater.from(this).inflateTransition(R.transition.trans_shared_element)
     }
 }

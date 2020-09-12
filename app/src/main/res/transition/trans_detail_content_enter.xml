@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/decelerate_quad"
+    android:transitionOrdering="together">
+    <slide
+        android:duration="100"
+        android:slideEdge="bottom"
+        android:startDelay="200" />
+    <fade
+        android:duration="150"
+        android:startDelay="250" />
+
+</transitionSet>
