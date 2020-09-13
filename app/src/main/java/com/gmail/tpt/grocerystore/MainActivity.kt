@@ -3,17 +3,22 @@ package com.gmail.tpt.grocerystore
 import android.app.ActivityOptions
 import android.app.SharedElementCallback
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.doOnLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_tes.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,18 +68,6 @@ class MainActivity : AppCompatActivity() {
                         mAddedToCart = false
                     }
                 }
-            }
-
-            override fun onSharedElementStart(
-                sharedElementNames: MutableList<String>?,
-                sharedElements: MutableList<View>?,
-                sharedElementSnapshots: MutableList<View>
-            ) {
-                super.onSharedElementStart(
-                    sharedElementNames,
-                    sharedElements,
-                    sharedElementSnapshots
-                )
             }
         })
 
@@ -153,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             mTopCartFull = true
             startPostponedEnterTransition()
         } else {
-            val civFruit = ImageView(this)
+            val civFruit = RoundedImageView(this)
                 .apply {
                     transitionName =
                         getString(R.string.transition_fruit)
@@ -162,12 +155,10 @@ class MainActivity : AppCompatActivity() {
             cardHeaderLayout.addViewWithMarginLeft(civFruit)
 
 
-            val civ = cardHeaderLayout.lastChild() as ImageView
+            val civ = cardHeaderLayout.lastChild() as RoundedImageView
             civ.load(mAddedFruit?.image ?: 0) {
-                civ.doOnLayout {
-                    Logger.d("height => ${civ.height}")
-                    startPostponedEnterTransition()
-                }
+                Logger.d("height => ${civ.height}")
+                startPostponedEnterTransition()
             }
         }
 

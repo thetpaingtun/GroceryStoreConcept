@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".tes.TesActivity">
+
+
+    <com.gmail.tpt.grocerystore.RoundedImageView
+        android:id="@+id/imgRound"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_margin="24dp"
+        android:src="@drawable/banana"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgFruit"
