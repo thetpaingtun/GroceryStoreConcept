@@ -13,6 +13,12 @@ class RoundedImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : androidx.appcompat.widget.AppCompatImageView(context, attrs, defStyleAttr) {
 
+    var showRoundedBackground = false
+        set(value) {
+            field = value
+            postInvalidate()
+        }
+
     private lateinit var roundedBg: RoundedBitmapDrawable
 
     init {
@@ -21,6 +27,7 @@ class RoundedImageView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
+
 
         val bitmap = ColorDrawable(Color.WHITE).toBitmap(width = w, height = h)
         roundedBg = RoundedBitmapDrawableFactory.create(resources, bitmap).apply {
@@ -31,7 +38,9 @@ class RoundedImageView @JvmOverloads constructor(
 
 
     override fun onDraw(canvas: Canvas?) {
-        canvas?.let { roundedBg.draw(it) }
+        if (showRoundedBackground) {
+            canvas?.let { roundedBg.draw(it) }
+        }
         super.onDraw(canvas)
     }
 }

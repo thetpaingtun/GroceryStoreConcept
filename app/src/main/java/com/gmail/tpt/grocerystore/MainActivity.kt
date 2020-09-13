@@ -115,6 +115,10 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, FruitDetailActivity::class.java).apply {
             putExtra(FruitDetailActivity.EXTRA_FRUIT, fruit)
+            putExtra(
+                FruitDetailActivity.EXTRA_CART_FULL,
+                cardHeaderLayout.isLayoutFull()
+            )
         }
 
 
@@ -142,12 +146,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun startAddingToCartTransition() {
         postponeEnterTransition()
-        if (cardHeaderLayout.childCount == mTopHoldableItemCount) {
+        if (cardHeaderLayout.isLayoutFull()) {
             mTopCartFull = true
             startPostponedEnterTransition()
         } else {
             val civFruit = RoundedImageView(this)
                 .apply {
+                    showRoundedBackground = true
                     transitionName =
                         getString(R.string.transition_fruit)
                 }

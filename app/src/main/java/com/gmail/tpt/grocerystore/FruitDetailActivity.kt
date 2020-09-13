@@ -11,6 +11,7 @@ class FruitDetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_ADD_TO_CART = "EXTRA_ADD_TO_CART"
         const val EXTRA_FRUIT = "EXTRA_FRUIT"
+        const val EXTRA_CART_FULL = "EXTRA_CART_FULL"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +29,9 @@ class FruitDetailActivity : AppCompatActivity() {
         window.sharedElementEnterTransition =
             TransitionInflater.from(this).inflateTransition(R.transition.trans_shared_element)
 
+
         val fruit = intent.getParcelableExtra<Fruit>(EXTRA_FRUIT)
+        val cartFull = intent.getBooleanExtra(EXTRA_CART_FULL, false)
 
         if (fruit != null) {
             txtName.text = fruit.name
@@ -52,6 +55,9 @@ class FruitDetailActivity : AppCompatActivity() {
         }
 
         btnAddToCart.setOnClickListener {
+            if (!cartFull) {
+                img.showRoundedBackground = true
+            }
             setResult(Activity.RESULT_OK, Intent().apply {
                 putExtra(EXTRA_ADD_TO_CART, true)
                 putExtra(EXTRA_FRUIT, fruit)

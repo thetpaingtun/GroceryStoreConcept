@@ -44,4 +44,9 @@ class CartHeaderLayout @JvmOverloads constructor(
 
         addView(view, lp)
     }
+
+    fun isLayoutFull(): Boolean {
+        return childCount >= getHoldableImageCount()
+    }
+
 }
