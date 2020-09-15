@@ -46,6 +46,9 @@ class TesActivity : AppCompatActivity() {
 
 //        imgRound.setImageResource(R.drawable.apple)
 
+//        clip.setBackgroundColor(Color.GREEN)
+//        clip.setBackgroundResource(R.drawable.pattern2)
+
 
         imgFruit.setOnClickListener {
             val intent = Intent(this, TestDetail::class.java)

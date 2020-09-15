@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context=".tes.TesActivity">
 
 
@@ -14,6 +13,7 @@
         android:layout_height="86dp"
         android:layout_margin="24dp"
         android:src="@drawable/banana"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +25,7 @@
         android:layout_marginTop="380dp"
         android:src="@drawable/strawberry"
         android:transitionName="img_trans"
+        android:visibility="gone"
         app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +37,7 @@
         android:layout_marginTop="380dp"
         android:src="@drawable/banana"
         android:transitionName="img_trans"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +50,43 @@
         android:layout_marginTop="612dp"
         android:src="@drawable/strawberry"
         android:transitionName="img_trans"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.gmail.tpt.grocerystore.ClipFrameLayout
+        android:id="@+id/clip"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/pattern2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="clipping" />
+
+
+    </com.gmail.tpt.grocerystore.ClipFrameLayout>
+
+    <!--    <com.gmail.tpt.grocerystore.CartFrameLayout-->
+    <!--        android:id="@+id/cardCart"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="700dp"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@android:color/black">-->
+    <!--            -->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </com.gmail.tpt.grocerystore.CartFrameLayout>-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

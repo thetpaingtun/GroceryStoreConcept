@@ -40,18 +40,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="120dp" />
 
-    <com.gmail.tpt.grocerystore.CartFrameLayout
+    <com.gmail.tpt.grocerystore.ClipFrameLayout
         android:id="@+id/cardCart"
         android:layout_width="match_parent"
         android:layout_height="700dp"
+        android:background="@android:color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guide">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/txtCartTitle"
@@ -221,7 +221,7 @@
                 app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.gmail.tpt.grocerystore.CartFrameLayout>
+    </com.gmail.tpt.grocerystore.ClipFrameLayout>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupBase"
