@@ -28,7 +28,8 @@
             android:id="@id/toolbar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
-            <Transform android:translationY="-700dp" />
+            <!--            just using arbitrary large number here -->
+            <Transform android:translationY="-1000dp" />
 
         </Constraint>
 
