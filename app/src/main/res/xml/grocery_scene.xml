@@ -12,8 +12,8 @@
             app:touchAnchorSide="top"
             app:touchRegionId="@id/cardCart" />
 
-    </Transition>
 
+    </Transition>
 
     <ConstraintSet android:id="@+id/start" />
 

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="#99E7E0E0"
     app:layoutDescription="@xml/grocery_scene"
+    app:motionDebug="SHOW_PATH"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,16 +20,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:nestedScrollingEnabled="false"
+        android:layout_height="0dp"
         android:paddingBottom="176dp"
         android:translationY="176dp"
-        app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@id/guide"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
