@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#99E7E0E0"
     app:layoutDescription="@xml/grocery_scene"
-    app:motionDebug="SHOW_PATH"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -31,6 +30,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         android:paddingBottom="176dp"
         android:translationY="176dp"
         app:layout_constraintBottom_toTopOf="@id/guide"
