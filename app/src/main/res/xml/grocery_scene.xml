@@ -2,10 +2,6 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <ConstraintSet android:id="@+id/start" />
-
-
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@id/start">
@@ -19,10 +15,13 @@
     </Transition>
 
 
+    <ConstraintSet android:id="@+id/start" />
+
+
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@id/guide"
-            app:layout_constraintGuide_begin="156dp" />
+            app:layout_constraintGuide_percent="0.1" />
 
 
         <Constraint
