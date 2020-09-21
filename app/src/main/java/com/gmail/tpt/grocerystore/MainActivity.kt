@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
             adapter = fruitAdapter
             layoutManager = lm
 
-            addItemDecoration(GridSpaceItemDecoration(24))
+            addItemDecoration(GridSpaceItemDecoration(16))
         }
 
         fruitAdapter.listener = { imgView, grocery ->
