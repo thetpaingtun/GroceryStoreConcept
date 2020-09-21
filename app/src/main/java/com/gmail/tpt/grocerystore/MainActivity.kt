@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tes.*
+import kotlinx.android.synthetic.main.layout_cart.*
 
 class MainActivity : AppCompatActivity() {
 

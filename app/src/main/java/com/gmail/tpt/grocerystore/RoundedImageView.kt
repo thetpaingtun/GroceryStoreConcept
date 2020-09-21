@@ -23,6 +23,19 @@ class RoundedImageView @JvmOverloads constructor(
 
     init {
         scaleType = ScaleType.FIT_CENTER
+
+        attrs?.apply {
+            val typedArray = context.obtainStyledAttributes(
+                this,
+                R.styleable.RoundedImageView, 0, 0
+            )
+
+            showRoundedBackground =
+                typedArray.getBoolean(R.styleable.RoundedImageView_showRoundBackground, false)
+
+            typedArray.recycle()
+        }
+
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
