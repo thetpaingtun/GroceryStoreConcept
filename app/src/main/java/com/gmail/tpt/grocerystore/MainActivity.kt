@@ -14,12 +14,14 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.doOnLayout
+import androidx.core.view.setPadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mikhaellopez.circularimageview.CircularImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tes.*
 import kotlinx.android.synthetic.main.layout_cart.*
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+
         })
 
 
@@ -154,8 +157,10 @@ class MainActivity : AppCompatActivity() {
             val civFruit = RoundedImageView(this)
                 .apply {
                     showRoundedBackground = true
+                    scaleFactor = RoundedImageView.IMAGE_SCALE_FACTOR
                     transitionName =
                         getString(R.string.transition_fruit)
+
                 }
 
             cardHeaderLayout.addViewWithMarginLeft(civFruit)

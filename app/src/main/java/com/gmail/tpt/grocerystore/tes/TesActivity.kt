@@ -25,6 +25,7 @@ import com.gmail.tpt.grocerystore.Logger
 import com.gmail.tpt.grocerystore.R
 import com.gmail.tpt.grocerystore.dp
 import kotlinx.android.synthetic.main.activity_tes.*
+import kotlin.math.roundToInt
 
 class TesActivity : AppCompatActivity() {
 
@@ -44,7 +45,7 @@ class TesActivity : AppCompatActivity() {
             setAntiAlias(true)
         }*/
 
-//        imgRound.setImageResource(R.drawable.apple)
+//        imgRound.setImageResource(R.drawable.banana)
 
 //        clip.setBackgroundColor(Color.GREEN)
 //        clip.setBackgroundResource(R.drawable.pattern2)
