@@ -18,19 +18,17 @@ class ClipFrameLayout @JvmOverloads constructor(
     private var backgroundResource: Int? = null
     private var backgroundColor: Int? = null
 
+    private val maskedPaint: Paint
 
     init {
-
-//        updatePadding(top = context.dp(48f).toInt())
+        setLayerType(LAYER_TYPE_HARDWARE, null)
+        maskedPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+            .apply {
+                color = Color.WHITE
+                xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+            }
     }
 
-
-/*    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-
-        for (child in children) {
-            child.layout(left, top, right, bottom)
-        }
-    }*/
 
     override fun onDraw(canvas: Canvas?) {
         Logger.d("on draw =>")
@@ -64,14 +62,6 @@ class ClipFrameLayout @JvmOverloads constructor(
     }
 
     override fun dispatchDraw(canvas: Canvas) {
-        Logger.d("dispatch draw =>")
-
-        val state = canvas.save()
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            canvas.clipOutPath(path)
-        } else {
-            canvas.clipPath(path, Region.Op.INTERSECT)
-        }
 
         backgroundColor?.toDrawable()
             ?.apply {
@@ -84,7 +74,6 @@ class ClipFrameLayout @JvmOverloads constructor(
             ?.apply {
                 val drawable = ContextCompat.getDrawable(context, this)
                 drawable?.setBounds(0, 0, width, height)
-                drawable?.draw(canvas)
             }
 
         bgDrawable?.apply {
@@ -94,8 +83,7 @@ class ClipFrameLayout @JvmOverloads constructor(
 
 
         super.dispatchDraw(canvas)
-        canvas.restoreToCount(state)
-
+        canvas.drawPath(path, maskedPaint)
     }
 
     override fun setBackgroundColor(color: Int) {
