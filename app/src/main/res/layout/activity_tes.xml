@@ -7,7 +7,7 @@
     tools:context=".tes.TesActivity">
 
 
-    <com.gmail.tpt.grocerystore.RoundedImageView
+    <com.gmail.tpt.grocerystore.views.RoundedImageView
         android:id="@+id/imgRound"
         android:layout_width="86dp"
         android:layout_height="86dp"
@@ -57,7 +57,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.gmail.tpt.grocerystore.ClipFrameLayout
+    <com.gmail.tpt.grocerystore.views.ClipFrameLayout
         android:id="@+id/clip"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -73,9 +73,9 @@
             android:text="clipping" />
 
 
-    </com.gmail.tpt.grocerystore.ClipFrameLayout>
+    </com.gmail.tpt.grocerystore.views.ClipFrameLayout>
 
-    <!--    <com.gmail.tpt.grocerystore.CartFrameLayout-->
+    <!--    <com.gmail.tpt.grocerystore.views.CartFrameLayout-->
     <!--        android:id="@+id/cardCart"-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="700dp"-->
@@ -90,7 +90,7 @@
     <!--            -->
 
     <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-    <!--    </com.gmail.tpt.grocerystore.CartFrameLayout>-->
+    <!--    </com.gmail.tpt.grocerystore.views.CartFrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

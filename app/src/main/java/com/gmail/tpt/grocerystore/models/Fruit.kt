@@ -1,7 +1,8 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.gmail.tpt.grocerystore.R
 
 data class Fruit(
     val name: String,

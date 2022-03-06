@@ -1,4 +1,4 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
+import com.gmail.tpt.grocerystore.R
 
 class RoundedImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

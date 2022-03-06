@@ -1,13 +1,16 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
+import com.gmail.tpt.grocerystore.R
+import com.gmail.tpt.grocerystore.getDrawableDimension
+import com.gmail.tpt.grocerystore.load
+import com.gmail.tpt.grocerystore.models.Fruit
 import kotlinx.android.synthetic.main.item_fruit.view.*
 
 class FruitAdapter(val context: Context, val list: List<Fruit>) :

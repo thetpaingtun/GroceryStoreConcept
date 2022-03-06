@@ -1,4 +1,4 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.graphics.Rect
 import android.view.View

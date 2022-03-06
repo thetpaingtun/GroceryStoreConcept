@@ -12,7 +12,7 @@
     <changeImageTransform />
     <changeClipBounds />
     <changeTransform />
-    <transition class="com.gmail.tpt.grocerystore.RoundedImageScaleFactorTranstion" />
+    <transition class="com.gmail.tpt.grocerystore.views.RoundedImageScaleFactorTranstion" />
 </transitionSet>
 
 

@@ -1,9 +1,11 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gmail.tpt.grocerystore.R
+import com.gmail.tpt.grocerystore.models.Cart
 import kotlinx.android.synthetic.main.item_cart.view.*
 
 class CartAdapter(val list: MutableList<Cart>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {

@@ -1,4 +1,6 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.models
+
+import com.gmail.tpt.grocerystore.R
 
 data class Cart(
     val drawable: Int = R.drawable.oranges,

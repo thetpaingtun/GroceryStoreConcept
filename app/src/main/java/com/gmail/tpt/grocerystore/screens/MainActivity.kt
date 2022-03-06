@@ -1,9 +1,8 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.screens
 
 import android.app.ActivityOptions
 import android.app.SharedElementCallback
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.Menu
@@ -11,18 +10,24 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
-import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.doOnLayout
-import androidx.core.view.setPadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.mikhaellopez.circularimageview.CircularImageView
+import com.gmail.tpt.grocerystore.R
+import com.gmail.tpt.grocerystore.adapters.CartAdapter
+import com.gmail.tpt.grocerystore.adapters.FruitAdapter
+import com.gmail.tpt.grocerystore.load
+import com.gmail.tpt.grocerystore.models.Cart
+import com.gmail.tpt.grocerystore.models.Fruit
+import com.gmail.tpt.grocerystore.models.getFruitList
+import com.gmail.tpt.grocerystore.utils.Logger
+import com.gmail.tpt.grocerystore.views.GridSpaceItemDecoration
+import com.gmail.tpt.grocerystore.views.RoundedImageView
+import com.gmail.tpt.grocerystore.views.SpacesItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tes.*
 import kotlinx.android.synthetic.main.layout_cart.*
-import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 

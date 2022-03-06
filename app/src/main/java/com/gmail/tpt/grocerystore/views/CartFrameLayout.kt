@@ -1,13 +1,12 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
-import androidx.core.view.children
+import com.gmail.tpt.grocerystore.dp
 
 /**
  *

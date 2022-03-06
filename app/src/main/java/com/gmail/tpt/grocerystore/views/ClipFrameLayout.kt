@@ -1,4 +1,4 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.content.Context
 import android.graphics.*
@@ -7,7 +7,8 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.updatePadding
+import com.gmail.tpt.grocerystore.dp
+import com.gmail.tpt.grocerystore.utils.Logger
 
 class ClipFrameLayout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

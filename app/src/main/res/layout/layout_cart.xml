@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.gmail.tpt.grocerystore.CartHeaderLayout
+    <com.gmail.tpt.grocerystore.views.CartHeaderLayout
         android:id="@+id/cardHeaderLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.gmail.tpt.grocerystore.CartHeaderLayout>
+    </com.gmail.tpt.grocerystore.views.CartHeaderLayout>
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/civTotal"
@@ -71,7 +71,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottomGuide" />
 
-    <com.gmail.tpt.grocerystore.RoundedImageView
+    <com.gmail.tpt.grocerystore.views.RoundedImageView
         android:id="@+id/civTruck"
         android:layout_width="48dp"
         android:layout_height="48dp"

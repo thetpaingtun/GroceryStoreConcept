@@ -1,4 +1,4 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.utils
 
 import android.util.Log
 

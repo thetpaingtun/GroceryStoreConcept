@@ -1,10 +1,14 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.screens
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.gmail.tpt.grocerystore.R
+import com.gmail.tpt.grocerystore.load
+import com.gmail.tpt.grocerystore.models.Fruit
+import com.gmail.tpt.grocerystore.utils.Logger
 import kotlinx.android.synthetic.main.activity_fruit_detail.*
 
 class FruitDetailActivity : AppCompatActivity() {

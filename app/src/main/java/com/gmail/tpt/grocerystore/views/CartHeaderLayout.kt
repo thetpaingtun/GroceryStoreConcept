@@ -1,9 +1,10 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import com.gmail.tpt.grocerystore.dp
 import kotlin.math.floor
 
 /**

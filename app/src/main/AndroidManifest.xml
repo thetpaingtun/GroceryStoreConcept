@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FruitDetailActivity"
+            android:name=".screens.FruitDetailActivity"
             android:screenOrientation="portrait">
             <!--       <intent-filter>
                        <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>-->
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".screens.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

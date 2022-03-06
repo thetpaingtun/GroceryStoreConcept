@@ -1,10 +1,11 @@
-package com.gmail.tpt.grocerystore
+package com.gmail.tpt.grocerystore.views
 
 import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.gmail.tpt.grocerystore.R
 
 
 class SpacesItemDecoration(val context: Context, val initSpace: Int? = null) : ItemDecoration() {
