@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var mTopHoldableItemCount: Int = 0
     private var mAddedFruit: Fruit? = null
     private var mAddedToCart: Boolean = false
+    private var mtotal = 0f
     private val RC_DETAIL = 123
 
 
@@ -192,6 +193,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         addFruitTotheCart()
+
+        updateTotal();
+    }
+
+    private fun updateTotal() {
+        mtotal += mAddedFruit?.price ?: 0f
+        txtTotal.text = "$${mtotal}"
+
     }
 
     private fun addFruitTotheCart() {
