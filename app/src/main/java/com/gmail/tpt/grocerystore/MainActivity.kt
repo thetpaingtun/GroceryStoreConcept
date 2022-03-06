@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
@@ -81,6 +82,23 @@ class MainActivity : AppCompatActivity() {
             Logger.d("holdable => ${cardHeaderLayout.getHoldableImageCount()}")
         }
 
+        motionRoot.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
+            }
+
+            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, progess: Float) {
+                val alpha = 1f - progess
+                cardHeaderLayout.alpha = alpha
+            }
+
+            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
+//                cardHeaderLayout.visibility = View.GONE
+            }
+
+            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
+            }
+
+        })
     }
 
     private fun setupCartAdapter() {
